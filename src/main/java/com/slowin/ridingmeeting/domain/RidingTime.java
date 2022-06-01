@@ -1,5 +1,6 @@
 package com.slowin.ridingmeeting.domain;
 
+import java.security.InvalidParameterException;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -17,8 +18,15 @@ public class RidingTime {
     }
 
     public RidingTime(LocalDateTime startTime, LocalDateTime endTime) {
+        validTime(startTime, endTime);
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    private void validTime(LocalDateTime startTime, LocalDateTime endTime) {
+        if (startTime.isAfter(endTime)) {
+            throw new InvalidParameterException("시작시간보다 끝나는 시간이 이전 일 수 없습니다.");
+        }
     }
 
     @Override

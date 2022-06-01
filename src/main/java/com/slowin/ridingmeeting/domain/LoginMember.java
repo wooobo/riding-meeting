@@ -2,9 +2,9 @@ package com.slowin.ridingmeeting.domain;
 
 public class LoginMember {
 
-    private Long id;
-    private String email;
-    private Integer age;
+    private final Long id;
+    private final String email;
+    private final Integer age;
 
     public LoginMember(Long id, String email, Integer age) {
         this.id = id;

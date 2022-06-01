@@ -7,8 +7,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class RidingRoute {
 
-    @Column(name = "startingPoint")
-    private String startingPoint;
+    @Column(name = "start_point")
+    private String startPoint;
     @Column(name = "destination")
     private String destination;
 
@@ -16,7 +16,7 @@ public class RidingRoute {
     }
 
     public RidingRoute(String startingPoint, String destination) {
-        this.startingPoint = startingPoint;
+        this.startPoint = startingPoint;
         this.destination = destination;
     }
 
@@ -29,7 +29,7 @@ public class RidingRoute {
             return false;
         }
         RidingRoute that = (RidingRoute) o;
-        return Objects.equals(startingPoint, that.startingPoint) && Objects.equals(destination,
+        return Objects.equals(startPoint, that.startPoint) && Objects.equals(destination,
             that.destination);
     }
 
